@@ -38,6 +38,7 @@ def pic_dow(hashcode):
         link = img.get("src")
         if link[0:2] == '//':
             return rand_hashcode()
+        print(link)
         try:
             size_image = getsizes(link)
             if size_image == (503, (161, 81)):
@@ -52,12 +53,14 @@ def rand_hashcode():
     hashcode = []
     for i in range(6):
         n_or_l = random.randrange(0, 2)
+        print(n_or_l)
         if n_or_l == 0:
             n = random.randrange(0, 10)
             hashcode.append(str(n))
         else:         
             n = random.randrange(97, 123)
             hashcode.append(chr(n))
+    print(hashcode)
     return pic_dow(hashcode)
 
 
