@@ -26,6 +26,7 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(commands=['run'])
 async def send_img(message: types.Message):
     image = parser_lightshot.rand_hashcode()
+    print(image)
     try:
         await message.answer("Вот твой скриншот🖼\n\n"+image)
     except TypeError:
