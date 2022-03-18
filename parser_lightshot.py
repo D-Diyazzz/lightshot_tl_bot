@@ -7,6 +7,7 @@ from PIL import ImageFile
 
 def getsizes(uri):
     # get file size *and* image size (None if not known)
+    print("form getsize")
     file = ulreq.urlopen(uri)
     size = file.headers.get("content-length")
     if size: size = int(size)
@@ -20,6 +21,7 @@ def getsizes(uri):
             return size, p.image.size
             break
     file.close()
+    print("from getsize2")
     return size, None
 
 
@@ -29,14 +31,14 @@ def pic_dow(hashcode):
 
     src = "https://prnt.sc/"+hashcode
 
-    resp = req.get(src, headers={'User-Agent': 'Chrome'}).status_code
-    print(resp)
+    resp = req.get(src, headers={'User-Agent': 'Chrome'})
 
     soup = BeautifulSoup(resp.text, 'lxml')
     imgs = soup.find_all("img", class_="no-click screenshot-image")
 
     for img in imgs:
         link = img.get("src")
+        print(link)
         if link[0:2] == '//':
             return rand_hashcode()
         print(link)
