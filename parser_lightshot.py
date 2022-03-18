@@ -35,6 +35,7 @@ def pic_dow(hashcode):
 
     soup = BeautifulSoup(resp.text, 'lxml')
     imgs = soup.find_all("img", class_="no-click screenshot-image")
+    print(imgs)
 
     for img in imgs:
         link = img.get("src")
