@@ -3,3 +3,4 @@ requests==2.22.0
 aiogram==2.19
 beautifulsoup4==4.8.2
 Pillow==7.0.0
+lxml==4.5.0
