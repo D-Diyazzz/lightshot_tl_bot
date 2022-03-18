@@ -29,7 +29,7 @@ def pic_dow(hashcode):
 
     src = "https://prnt.sc/"+hashcode
 
-    resp = req.get(src)
+    resp = req.get(src, headers={'User-Agent': 'Chrome'})
 
     soup = BeautifulSoup(resp.text, 'lxml')
     imgs = soup.find_all("img", class_="no-click screenshot-image")
